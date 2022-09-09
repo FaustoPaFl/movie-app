@@ -9,6 +9,10 @@
     background-color: azure;
 }
 
+.movieImage:hover{
+    opacity: .8;
+}
+
 @media (max-width:560px) {
     .movieImage{
         width: 90%;
