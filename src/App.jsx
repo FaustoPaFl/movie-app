@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import { LandingPage } from "./Pages/LandingPage";
+import { MovieDetails } from './Pages/MovieDetails';
 
 export function App() {
   return (
@@ -15,8 +16,8 @@ export function App() {
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<LandingPage/>} />
-          <Route exact path='/movies'/>
+          <Route path='/' element={<LandingPage />} />
+          <Route exact path='/movies/:movieId' element={<MovieDetails />}/>
         </Routes>
       </main>
     </BrowserRouter>
