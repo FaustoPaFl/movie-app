@@ -1,21 +1,18 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useQuery } from '../hooks/useQuery';
 import { get } from '../utils/httpClient';
 import { MovieCard } from './MovieCard';
 import styles from './MoviesGrid.module.css';
 import { Spinner } from './Spinner';
-
-function useQuery(){
-  return new URLSearchParams(useLocation().search); 
-}
 
 export function MoviesGrid() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   
   const query = useQuery();
-  const search = query.get('seach');
+  const search = query.get('search');
+  console.log(search);
   
   useEffect(() => {
     setisLoading(true);

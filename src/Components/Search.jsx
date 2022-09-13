@@ -1,14 +1,14 @@
 import styles from "./Search.module.css";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export function Search() {
   const [searchText, setSearchText] = useState("");
-	const history = useHistory();
+	const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-		history.push('/?search=' + searchText)
+		navigate('/?search=' + searchText)
   };
 
   return (
