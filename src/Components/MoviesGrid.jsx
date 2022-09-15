@@ -12,7 +12,6 @@ export function MoviesGrid() {
   
   const query = useQuery();
   const search = query.get('search');
-  console.log(search);
   
   useEffect(() => {
     setisLoading(true);
