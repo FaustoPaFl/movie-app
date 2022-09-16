@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { get } from '../utils/httpClient';
 import { useState } from 'react';
 import { Spinner } from '../Components/Spinner';
+import { getMovieImg } from '../utils/getMoviePoster';
 
 export function MovieDetails() {
 	const { movieId } = useParams();
@@ -23,7 +24,8 @@ export function MovieDetails() {
     return <div><Spinner /></div>
   }
 
-  const imageUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+  const imageUrl = getMovieImg(movie.poster_path, 500)
+  //const imageUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
   return (
     <div className={styles.detailsContainer}>
       <img className={`${styles.col} ${styles.movieImage}`} src={imageUrl} alt={imageUrl.title} />

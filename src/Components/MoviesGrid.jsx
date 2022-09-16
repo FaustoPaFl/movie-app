@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useQuery } from '../hooks/useQuery';
 import { get } from '../utils/httpClient';
 import { MovieCard } from './MovieCard';
 import styles from './MoviesGrid.module.css';
 import { Spinner } from './Spinner';
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { Empty } from './Empty'
 
 export function MoviesGrid({ search }) {
   const [movies, setMovies] = useState([]);
@@ -22,6 +22,10 @@ export function MoviesGrid({ search }) {
       setisLoading(false);
     })
 }, [search, page]);
+
+  if (!isLoading && movies.length === 0){
+    return <Empty />;
+  }
 
   return (
     <InfiniteScroll
